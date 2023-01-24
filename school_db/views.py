@@ -59,7 +59,37 @@ SELECT `school_db_student`.`id`,
 # Print out each student's full name and gpa to the terminal
 def problem_one(request):
 
-    return complete(request)
+  students = Student.objects.filter(gpa__gte = 3.0).order_by('-gpa')
+  # highest_gpas =students.order_by('-gpa')
+
+  for student in students:
+    print(
+            f'First Name: {student.first_name} Last Name: {student.last_name} GPA: {student.gpa}')
+
+  # students = Student.objects.all()
+
+  # while students is 3.0:
+  #   if students != 3.0:
+
+     
+   
+      
+
+
+  # print('First Name: Julian Last Name: Bashir GPA: 4.4'
+  # 'First Name: Keiko Last Name: Ishikawa GPA: 4.2'
+  # 'First Name: Jake Last Name: Siko GPA: 4.0'  
+  # 'First Name: Beckett Last Name: Mariner GPA: 3.8'
+  # 'First Name: Michael Last Name: Eddington GPA: 3.7'
+  # 'First Name: Keira Last Name: Nyers GPA: 3.5')
+
+  return complete(request)
+
+
+   
+   
+
+
 
 
 # Supporting Query Method Documentation:
@@ -97,8 +127,36 @@ SELECT `school_db_student`.`id`,
 # Order by hire date ascending
 # Print out the instructor's full name and hire date to the terminal
 def problem_two(request):
+  instructors = Instructor.objects.filter(hire_date__year__lt=2010).order_by('hire_date')
 
-    return complete(request)
+  for instructor in instructors:
+    print(f'instructors: {instructor.first_name} {instructor.last_name} {instructor.hire_date}' )
+  # instuctors = Instructor.objects.all()
+  # Instructor.objects.filter()
+  # year = Instructor.objects.order_by()
+   
+  # year= 2010
+  # instructors = True
+
+  # while instructors is True:
+  #   if year < 2010:
+  #     instructors = True
+  #   Instructor.objects.all()
+
+  # else:
+  #     year += 1
+
+
+
+
+
+
+
+
+
+
+
+  return complete(request)
 
 
 # Supporting Query Method Documentation:
